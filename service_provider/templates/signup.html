@@ -1,0 +1,240 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title>Service Provider</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="static/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="static/css/responsive.css" rel="stylesheet" />
+
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+  <!-- MDB -->
+  <link rel="stylesheet" href="static/css/login-form.min.css" />
+</head>
+
+<body>
+  <!-- Start your project here-->
+
+  <style>
+    .text-center{text-align:center!important}
+    .gradient-custom-2 {
+      /* fallback for old browsers */
+      background: #fccb90;
+
+      /* Chrome 10-25, Safari 5.1-6 */
+      background: -webkit-linear-gradient(to right, #0ca57a, #063547);
+
+      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background: linear-gradient(to right, #0ca57a, #063547);
+    }
+
+    @media (min-width: 768px) {
+      .gradient-form {
+        height: 188vh !important;
+      }
+    }
+    @media (min-width: 869px) {
+      .gradient-custom-2 {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+      }
+    }
+
+.container .title{
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+.container .title::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+ form .gender-details .gender-title{
+  font-size: 15px;
+  font-weight: 500;
+ }
+ form .category{
+   display: flex;
+   width: 80%;
+   margin: 14px 0 ;
+   justify-content: space-between;
+ }
+ form .category label{
+   display: flex;
+   align-items: center;
+   cursor: pointer;
+ }
+ form .category label .dot{
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background: #d9d9d9;
+  border: 5px solid transparent;
+  transition: all 0.3s ease;
+}
+ #dot-1:checked ~ .category label .one,
+ #dot-2:checked ~ .category label .two,
+ {
+   background: #9b59b6;
+   border-color: #d9d9d9;
+ }
+ form input[type="radio"]{
+   display: none;
+ }
+
+   .form-control {
+    border: 1px solid #333;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+   font-size: 20px;
+
+    display: block;
+    height: 60px;
+  width: 100%;
+  padding: 0;
+    margin-bottom: 35px; 
+}
+.form-wrapper {
+    position: relative; }
+.alert{
+  font-size: 15px;
+  color: red;
+
+}
+.bg_p{
+background-color: #326c92;
+background-image: linear-gradient(160deg, #326c92 20%, #80a1d0 100%);
+}
+  </style>           
+<img src="static/images/U_V_logo.png" width="80dp">
+ <section class="h-100 gradient-form" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-black">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="card-body p-md-5 mx-md-4">
+
+                  <form method="post" action="/add_user">
+                  <div class="title">Registration</div> <br><br>
+                    <div class="form-outline mb-4">
+                      <input type="name" id="form2Example11" name="username" class="form-control" placeholder="Full Name " required="required" />
+                      <label style="font-size: 13px;"class="form-label" for="form2Example11">Fullname</label>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <input type="email" id="form2Example11" name="email"class="form-control" placeholder="Email-Id address"required="required"/>
+                      <label style="font-size: 13px;"class="form-label" for="form2Example11">Email-Id</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                      <input type="password" id="form2Example22" name="password1"class="form-control" required="required"/>
+                      <label style="font-size: 13px;"class="form-label" for="form2Example22">Password</label>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <input type="password" id="form2Example22" name="cpassword"class="form-control" required="required"/>
+                      <label style="font-size: 13px;"class="form-label" for="form2Example22">CPassword</label>
+                    </div>
+           <div class="form-outline mb-4">
+                      <input type="address" id="form2Example22" name="address"class="form-control" required="required"/>
+                      <label style="font-size: 13px;"class="form-label" for="form2Example22">Address</label>
+                    </div>
+
+           <div class="form-outline mb-4">
+                      <input type="mobile" id="form2Example22" name="mobile"class="form-control"required="required" maxlength="10" />
+                      <label style="font-size: 13px;"class="form-label" for="form2Example22">Phone-no.</label>
+                    </div>
+
+        <div class="form-wrapper" style="margin-top: -20px;">
+           <br>
+         <label style="font-size: 13px;"class="form-label" for="form2Example22">Gender</label>
+              <select name="gender"  id="form2Example22"class="form-control" required="required" value="">
+                <option value="" disabled selected>Select Your Gender</option>
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+                <option value="other">Other</option>
+              </select>
+        </div>
+
+        <div class="form-wrapper" style="margin-top: -20px;">
+           <br>
+         <label style="font-size: 13px;"class="form-label" for="form2Example22">State</label>
+              <select name="state"  id="form2Example22" name="state"class="form-control" required="required" value="">
+                <option value="" disabled selected>Select Your State</option>
+                <option value="Gujrata">Gujrata</option>
+                <option value="M.P">Madhaya-pradesh</option>
+                <option value="other">Other</option>
+              </select>
+        </div>
+
+                    <div class="text-center pt-1 mb-5 pb-1">
+              
+                      <button type="submit"class="btn btn-primary btn-block fa-lg bg_p mb-3" >Registration</button>
+
+                      <input type="reset" name="reset" value="Reset" class="btn btn-primary btn-block fa-lg bg_p mb-3"> 
+                      <a class="text-muted" href="#!">Forgot password?</a>
+                    </div>
+
+                    <div class="d-flex align-items-center justify-content-center pb-4">
+                      <p class="mb-0 me-2">You've allready account?</p>
+
+                      <button type="button" class="btn btn-outline-danger" ><a href="/login">Login</a></button>
+                    </div>
+
+                  </form>
+
+                </div>
+              </div>
+              <div class="col-lg-6 d-flex align-items-center bg_p ">
+                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                    <img src="static/images/singup.png" style="width: 495px;margin-left: -60px;" alt="logo">
+                    <h4 class="mt-1 mb-5 pb-1" style="text-align: center;"><b>Search job and detect it </b></h4>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End your project here-->
+  <!-- footer section -->
+  <footer class="container-fluid footer_section" style="background-color: #519ac5fc; ">
+    <p>
+      Copyright &copy; 2020 All Rights Reserved. Design by
+      <a href="https://html.design/">Free Html Templates</a>
+    </p>
+  </footer>
+  <!-- footer section -->
+
+  <script src="static/js/jquery-3.4.1.min.js"></script>
+  <script src="static/js/bootstrap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <script src="static/js/custom.js"></script>
+
+
+</body>
+
+</html>

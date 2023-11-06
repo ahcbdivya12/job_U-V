@@ -1,0 +1,241 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>User & Verifed</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'all_style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style type="text/css">
+  	
+/* jobs page */
+/*****SKILL SECTION SKILL SECTION SKILL SECTION*****/
+.skill-section {
+  background-color: #00000008;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.skill-list {
+  background-color: white;
+  width: 23%;
+  float: left;
+  margin-left: 15px;
+  padding-top: 10px;
+  border-radius: 5px;
+  padding-left: 8px;
+  padding-bottom: 10px;
+}
+.skill-list img {
+  width: 250px;
+  height: 250px;
+  border-radius: 100px;
+}
+.skill-list h4 {
+  font-size: 16px;
+  color: #313538;
+  font-weight: bold;
+  padding-left: 8px;
+  padding-top: 8px
+}
+.view-button {
+  width: 45%;
+  height: 20px;
+  border-radius: 20px;
+  border: none;
+  background-color: #e34216;
+  color: white;
+  font-size: 11px;
+  padding-left: 5px;
+  margin-top: 15px;
+}
+/* jobs page end  */
+
+/*****RECENT JOB SECTION RECENT JOB SECTION*****/
+.recent-job {
+	padding-top: 50px;
+	background-color: #f0f3fa;
+	padding-bottom: 60px;
+}
+
+.recent-job-heading {
+	text-align: center;
+	color: #343a40;
+}
+
+.recent-job-sub-heading {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.recent-job-list {
+	float: left;
+	background-color: white;
+	padding: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 20px;
+}
+
+.job-title {
+	font-size: 20px;
+}
+
+.job-company {
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.job-company i {
+	color: orange;
+	margin-left: 10px;
+}
+
+.job-skill {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-size: 16px;
+}
+
+.job-apply-button {
+	background: blue;
+	padding: 10px;
+	color: white;
+	text-decoration: none;
+	float: right;
+}
+  </style>
+</head>
+<body>
+<div class="fa-item">
+			<div class="fafa-menu">
+				<a href="#" class="fa fa-facebook"  style="color: #519ac5fc;"></a>
+			</div>
+			<div class="fafa-menu">
+				<a href="#" class="fa fa-twitter"  style="color: #519ac5fc;"></a>
+			</div>
+			<div class="fafa-menu">
+				<a href="#" class="fa fa-google" style="color: #519ac5fc;"></a>
+			</div>
+			<div class="fafa-menu">
+				<a href="#" class="fa fa-linkedin" style="color: #519ac5fc;"></a>
+			</div>
+			<div class="fafa-menu">
+				<a href="#" class="fa fa-instagram" style="color: #519ac5fc;"></a>
+			</div>
+		</div>
+
+<!-- header section strats -->
+    <header class="header_section" style="background-color: #519ac5fc; font-weight: bold; font-size: 20px;">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+                    <img src="{% static 'images/U_V_logo.png' %}" width="80dp">
+            <span>U & V
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+		<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #fff;">
+        {{user}}
+      </a>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link pl-lg-0" href="../index/">Home <span class="sr-only">(current)</span></a>
+              </li>     <li class="nav-item">
+                <a class="nav-link" href="../news/">News</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../jobs/">Jobs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../contact">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../about">About Us </a>
+              </li>
+         
+            </ul>
+
+            <a href="{% url 'logout' %}" class="btn btn-primary" style="border-radius: 12px; margin-left: 10px; background-color: #44b89d; font-size: 20px; font-weight: bold;">Logout</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+<!------CATEGORY SECTION CATEGORY SECTION CATEGORY SECTION ------>
+<div class="width-100 skill-section">
+  <div class="container">
+    <div class="skill-list">
+      <div class="width-33">
+        <img class="skill-img" src="https://img.freepik.com/premium-vector/pixel-computer-technology-logo-template-designs-computer-service-logo-template-designs_279597-384.jpg">
+      </div>
+      <div class="width-66">
+        <h4>It Sector</h4>
+      </div>
+    </div>
+    <div class="skill-list">
+      <div class="width-33">
+        <img class="skill-img" src="https://img.freepik.com/premium-vector/education-school-logo-icon-vector-template_644408-645.jpg">
+      </div>
+      <div class="width-66">
+        <h4>Teaching Sector</h4>
+      </div>
+    </div>
+    <div class="skill-list">
+      <div class="width-33">
+        <img class="skill-img" src="https://i.fbcd.co/products/resized/resized-750-500/584-78a69398224de11aff32a5f95317fe91431ce6ab876e74bf624be0a3d8bdc12e.jpg">
+      </div>
+      <div class="width-66">
+        <h4>BPO Sector</h4>
+      </div>
+    </div>
+    <div class="skill-list">
+      <div class="width-33">
+        <img class="skill-img" src="https://cdn.w600.comps.canstockphoto.com/accountant-job-vector-concept-color-eps-vector_csp97076485.jpg">
+      </div>
+      <div class="width-66">
+        <h4>Accountant Sector</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-----RECENT JOB SECTION RECENT JOB SECTION RECENT JOB SECTION ----->
+<div class="width-100 recent-job">
+  <div class="container">
+    <h2 class="recent-job-heading">Updates News</h2>
+    <p class="recent-job-sub-heading">Get the list of all type News in <strong style="color: green;">Veryfied Companys</strong></p>
+    <!-----JOB LIST----->
+   	{% for s in mymembers_1 %}   
+     <div class="width-50">
+      <div class="recent-job-list">
+        <div class="width-100">
+          <h4 class="job-title">{{s.title}}</h4>
+          <p class="job-company"><i class="fa fa-star" aria-hidden="true"></i> | 234 Reviews </p>
+        </div>
+        <div class="width-33">
+          <i class="fa fa-briefcase" aria-hidden="true"></i> {{s.subject}}
+        </div>
+        <div class="width-33">
+          <i class="far fa-calendar-alt" aria-hidden="true"></i>{{s.date_time}}
+        </div>
+        <div class="width-100">
+          <p class="job-skill">
+            <b style="font-size: 20px">Skills : </b>{{s.sp_new}}</p>
+        </div>
+        <div class="width-100">
+          <a href="http://127.0.0.1:8001/" class="job-apply-button">Chek It Now</a>
+        </div>
+      </div>
+    </div>
+   			{% endfor %}
+ 
+  </div>
+</div>
+</body>
+</html>

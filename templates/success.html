@@ -1,0 +1,185 @@
+{% load static %}
+
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+   <title>U & V</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}" />
+
+  <link href="{% static 'font-awesome.min.css' %}" rel="stylesheet" />
+
+  <link href="{% static 'all_style.css' %}" rel="stylesheet" />
+
+  <link href="{% static 'responsive.css' %}" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+  <!-- MDB -->
+  <link rel="stylesheet" href="{% static 'login-form.min.css' %}" />
+</head>
+
+<body>
+  <!-- Start your project here-->
+
+  <style>
+  
+.container .title{
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+.container .title::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+ form .gender-details .gender-title{
+  font-size: 15px;
+  font-weight: 500;
+ }
+ form .category{
+   display: flex;
+   width: 80%;
+   margin: 14px 0 ;
+   justify-content: space-between;
+ }
+ form .category label{
+   display: flex;
+   align-items: center;
+   cursor: pointer;
+ }
+ form .category label .dot{
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background: #d9d9d9;
+  border: 5px solid transparent;
+  transition: all 0.3s ease;
+}
+ #dot-1:checked ~ .category label .one,
+ #dot-2:checked ~ .category label .two,
+ {
+   background: #9b59b6;
+   border-color: #d9d9d9;
+ }
+ form input[type="radio"]{
+   display: none;
+ }
+
+   .form-control {
+    border: 1px solid #333;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+   font-size: 20px;
+
+    display: block;
+    height: 60px;
+  width: 100%;
+  padding: 0;
+    margin-bottom: 35px; 
+}
+.form-wrapper {
+    position: relative; }
+.alert{
+  font-size: 15px;
+  color: red;
+
+}
+.bg_p{
+background-color: #326c92;
+background-image: linear-gradient(160deg, #326c92 20%, #80a1d0 100%);
+}
+  </style>
+<div class="fa-item">
+      <div class="fafa-menu">
+        <a href="#" class="fa fa-facebook"  style="color: #519ac5fc;"></a>
+      </div>
+      <div class="fafa-menu">
+        <a href="#" class="fa fa-twitter"  style="color: #519ac5fc;"></a>
+      </div>
+      <div class="fafa-menu">
+        <a href="#" class="fa fa-google" style="color: #519ac5fc;"></a>
+      </div>
+      <div class="fafa-menu">
+        <a href="#" class="fa fa-linkedin" style="color: #519ac5fc;"></a>
+      </div>
+      <div class="fafa-menu">
+        <a href="#" class="fa fa-instagram" style="color: #519ac5fc;"></a>
+      </div>
+    </div>
+
+
+<div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section" style="background-color: #519ac5fc; font-weight: bold; font-size: 20px;">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+                    <img src="{% static 'images/U_V_logo.png' %}" width="80dp">
+            <span>U & V
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+    <!-- <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{user}} -->
+      </a>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+
+ <section class="h-100 gradient-form" style="background-color: #eee;">
+    <div class="container">
+                  <form method="post" action="">
+                      {% csrf_token %}
+ 
+                   <div class="title">User details to send Company for contact you</div>
+ <br><br>
+          
+                    <div class="form-outline mb-4">
+                      <input type="name" id="form2Example11"name="username" class="form-control" placeholder="Full Name " required="required" />
+                      <label style="font-size: 13px;"class="form-label" for="form2Example11">Fullname</label>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <input type="email" id="form2Example11" name="email"class="form-control" placeholder="Email-Id address"required="required"/>
+                      <label style="font-size: 13px;"class="form-label" for="form2Example11">Email-Id</label>
+                    </div>
+           <div class="form-outline mb-4">
+                      <input type="text" id="form2Example22" name="mobile"class="form-control"required="required" maxlength="10" />
+                      <label style="font-size: 13px;"class="form-label" for="form2Example22">Phone-no.</label>
+                    </div>
+
+                    <div class="text-center pt-1 mb-5 pb-1">
+          
+                      <button type="submit"class="btn btn-primary btn-block fa-lg bg_p mb-3" >Send</button>
+
+                    </div>
+
+                    </div>
+
+                  </form>
+
+  </section>
+  <!-- End your project here-->
+ </body>
+
+</html>

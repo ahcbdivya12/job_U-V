@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Service_sprovider</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ 
+ <link rel="stylesheet" href="static/css/mobiscroll.javascript.min.css">
+    <script src="static/js/mobiscroll.javascript.min.js"></script>
+ <style type="text/css">
+  	
+/*add product css*/
+
+
+/* Style inputs, select elements and textareas */
+input[type=text], select, textarea{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+/* Style the label to display next to the inputs */
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+
+}
+
+/* Style the submit button */
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+/* Style the container */
+.container {
+  border-radius: 5px;
+  padding: 20px;
+  margin-right: 160px;
+}
+
+/* Floating column for labels: 25% width */
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+/* Floating column for inputs: 75% width */
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+
+/* Split the screen in half */
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+}
+
+  @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+.grid_d{
+  display: grid;
+  height: 100%;
+  place-items: center;
+  text-align: center;
+}
+.cont{
+  height: 350px;
+  width: 230px;
+  position: relative;
+}
+.cont .wrapper{
+  position: relative;
+  height: 150px;
+  width: 100%;
+  border-radius: 10px;
+  background: #fff;
+  border: 2px dashed #c2cdda;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-left: 150px;
+}
+.wrapper.active{
+  border: none;
+}
+.wrapper .image{
+  position: absolute;
+  height: auto;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper img{
+  height: auto;
+  width: auto;
+  object-fit: cover;
+}
+
+.wrapper .icon{
+  font-size: 100px;
+  color: #9658fe;
+}
+.wrapper .text{
+  font-size: 20px;
+  font-weight: 500;
+  color: #5B5B7B;
+}
+.wrapper #cancel-btn i{
+  position: absolute;
+  font-size: 20px;
+  right: 15px;
+  top: 15px;
+  color: #9658fe;
+  cursor: pointer;
+  display: none;
+}
+.wrapper.active:hover #cancel-btn i{
+  display: block;
+}
+.wrapper #cancel-btn i:hover{
+  color: #e74c3c;
+}
+
+.wrapper .file-name{
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  padding: 8px 0;
+  font-size: 18px;
+  color: #fff;
+  display: none;
+  background: linear-gradient(135deg,#3a8ffe 0%,#9658fe 100%);
+}
+.wrapper.active:hover .file-name{
+  display: block;
+}
+.cont #custom-btn{
+  margin-top: 30px;
+  display: block;
+  width: 100%;
+  height: 50px;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+background-image: linear-gradient(160deg, #326c92 20%, #80a1d0 100%);
+margin-left: 140px;
+}
+
+.upload-container{
+        position:relative;
+      }
+.upload-container input{
+border:1px solid #92b0b3;
+border-radius: 50px;
+background:#fff;
+outline:2px dashed #92b0b3;
+outline-offset:-10px;
+padding:100px 0 100px 50px;
+text-align:center !important;
+width:350px;
+font-size: 18px;
+font-weight: 500;
+letter-spacing: 1px;
+text-transform: uppercase;
+        }
+.upload-container input:hover{
+background:#ddd;
+}
+.upload-container:before{
+position:absolute;
+bottom:50px;
+left:150px;
+content:" (or) Drag and Drop files here. ";
+color:#3f8188;
+font-weight:900;
+}
+
+.fu{
+position: relative;
+}
+.fu i{
+  position: absolute;
+  left: 150px;top: 10px;
+  font-size: 80px;
+  color: #9658fe;
+}
+.hading{
+    font-weight: bold;
+  color: #000000;
+  text-align: center;
+}
+
+    button {
+        display: inline-block;
+        margin: 5px 5px 0 0;
+        padding: 10px 30px;
+        outline: 0;
+        border: 0;
+        cursor: pointer;
+        background: #5185a8;
+        color: #fff;
+        text-decoration: none;
+        font-family: arial, verdana, sans-serif;
+        font-size: 14px;
+        font-weight: 100;
+    }
+
+    input {
+        width: 100%;
+        margin: 0 0 5px 0;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 0;
+        font-family: arial, verdana, sans-serif;
+        font-size: 14px;
+        box-sizing: border-box;
+        -webkit-appearance: none;
+    }
+
+    .mbsc-page {
+        padding: 1em;
+    }
+
+
+/*end add product css*/
+  </style>
+<script type="text/javascript" src="static/js/add_product.js"></script>
+</head>
+<body>
+{% if error %}
+<p style="color: red;"><strong>Error: </strong> {{error}}</p>
+{% endif %}
+  <div class="hading">
+  <h2>Add Your Jobs descriptions &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       Company details   </h2></div>
+ <div class="grid_d">
+  
+  
+<div class="split left">
+	<div class="container">
+	  <form method="POST" action="/product" >
+	    <div class="row" >
+	      <div class="col-25" >
+	        <label for="fname">Company Name</label>
+	      </div>
+	      <div class="col-75">
+	        <input type="text" id="fname" name="firstname" placeholder="Your Company name.." required="required">
+	      </div>
+	    </div>
+	    <div class="row">
+	      <div class="col-25">
+	        <label for="lname">Owner Name</label>
+	      </div>
+	      <div class="col-75">
+	        <input type="text" id="lname" name="lastname" placeholder="Your Owner name.." required="required">
+	      </div>
+	    </div>
+	    <div class="row">
+	      <div class="col-25">
+	        <label for="addname">Company Mailling Address Name</label>
+	      </div>
+	      <div class="col-75">
+	        <input type="text" required="required"  id="addname" name="address" placeholder="Your Address ..">
+	      </div>
+	    </div>
+	    <div class="row">
+	      <div class="col-25">
+	        <label for="city">City</label>
+	      </div>
+	      <div class="col-75">
+	        <select id="city" name="city" required="required">
+	          <option value="Ahemdabad">Ahemdabad</option>
+	          <option value="surat">Surat</option>
+	          <option value="mumbai">Mumbai</option>
+
+            <option value="Delhi">Delhi</option>
+	        </select>
+	      </div>
+	    </div>
+	    <div class="row">
+	      <div class="col-25">
+	        <label for="zip">Zip Code</label>
+	      </div>
+	      <div class="col-75">
+	        <input type="text" id="zip" name="zip" required="required" placeholder="Your zip .." required="required" maxlength="6">
+	      </div>
+	    </div>
+	    
+	    <div class="row">
+	      <div class="col-25">
+	        <label for="email">Email-ID</label>
+	      </div>
+	      <div class="col-75">
+	        <input type="text" id="email" name="email" placeholder="Your email .." required="required">
+	      </div>
+	    </div>
+	    
+	    <div class="row">
+	      <div class="col-25">
+	        <label for="phone">phone number</label>
+	      </div>
+	      <div class="col-75">
+	        <input type="text" id="phone" name="phone" placeholder="Your number .." required="required" maxlength="10" >
+	      </div>
+	    </div>
+	    <div class="row">
+	      <div class="col-25">
+	        <label for="gst">GST Number</label>
+	      </div>
+	      <div class="col-75">
+	        <input type="text" id="gst" name="gst" maxlength="15" required="required">
+	      </div>
+	    </div>
+	    
+	    <div class="row">
+	      <div class="col-25">
+	        <label for="cln">Company License Number</label>
+	      </div>
+	      <div class="col-75">
+	        <input type="text" id="cln" name="cln" maxlength="21" required="required">
+	      </div>
+	    </div>
+	    
+      <div class="row">
+        <div class="col-25">
+          <label for="jobs">Jobs</label>
+        </div>
+        <div class="col-75">
+          <select id="jobs" name="jobs" required="required">
+            <option value="software devloper">Software Developer</option>
+            <option value="Web Developer">Web Developer</option>
+            <option value="Android Developer">Android Developer</option>
+            <option value="IOS Developer">IOS Developer</option>
+            <option value="HTML Designer">HTML Designer</option>
+            <option value="CSS Designer">CSS Designer</option>
+            <option value="Javascript Developer">Javascript Developer</option>
+            <option value="jQuery Developer">jQuery Developer</option>
+            <option value="java Developer">Java Developer</option>
+            <option value="Python Devloper">Python Devloper</option>
+            
+            <option value="Teacher">Teacher</option>
+            <option value="Accountant">Accountant</option>
+            <option value="Telecommunication">Telecommunication</option>
+          </select>
+        </div>
+      </div>
+  <div mbsc-page class="demo-multiple-select">
+        <div style="height:100%">
+                <label>
+        select-languag
+        <input mbsc-input id="demo-multiple-select-input" placeholder="Please select..." data-dropdown="true" data-input-style="outline" data-label-style="stacked" data-tags="true" name="s_language" />
+    </label>
+    <select id="demo-multiple-select" required="required" multiple>
+        <option value="1">Telecomm</option>
+      <optgroup label="web Developer">
+        <option value="2">HTML, CSS, JavaScript, PHP, MYSQL</option>
+        <option value="3">HTML, CSS, JavaScript, JQyure, Python, SQL</option>
+        <option value="4">HTML, CSS, JavaScript, Java(Framework), SQL </option>
+        <option value="5">Vb.NET, C#</option>
+      </optgroup>
+      <optgroup label="Android devloper">
+        <option value="6">Android, SQLLite, XML</option>
+        <option value="7">Flutter</option>
+      </optgroup>
+        <option value="8">ISO devloper, R, Python</option>
+        <option value="9">ML, Python</option>
+      <optgroup label="Teacher">
+        <option value="10">Fron-end designing(html,css,js,Jquery)</option>
+        <option value="11">Back-end(C, C++, java, Python)</option>
+        <option value="12">Data-Base</option>
+        <option value="13">Math</option>
+        <option value="14">Science</option>
+        <option value="15">English</option>
+        <option value="16">Basic Computer</option>
+      </optgroup>
+        <option value="17">HTML</option>
+        <option value="18">Css</option>
+        <option value="19">JavaScript</option>
+        <option value="20">Jquery</option>
+        <option value="21">Java</option>
+        <option value="22">Python</option>
+        <option value="23">C++</option>
+        <option value="24">C</option>
+    </select>
+        </div>
+    </div>
+<div class="row">
+        <div class="col-25">
+          <label for="salary">Job salary</label>
+        </div>
+        <div class="col-75">
+          <input type="text" required="required" id="salary" name="salary">
+        </div>
+      </div>
+      
+	    <div class="row">
+	      <div class="col-25">
+	        <label for="subject">Descriptions</label>
+	      </div>
+	      <div class="col-75">
+	        <textarea id="subject" required="required" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+	      </div>
+	    </div>
+	</div>
+</div>
+  <div class="split right">
+    <div class="row">
+      <div class="col-25" style="margin-top: 20px;">
+            <label for="file_upload_1">ISO Certificat :-</label>
+          </div>
+      <div class="col-75 upload-container fu" style="margin-top: 20px;">
+        <i class="fas fa-cloud-upload-alt"></i>
+        <input type="file" required="required" id="file_upload_1" name="iso_c">
+      </div>
+    </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="file_upload_2">GMP Certificat :-</label>
+        </div>
+        <div class="col-75 upload-container fu">
+         <i class="fas fa-cloud-upload-alt"></i>
+          <input type="file" required="required" id="file_upload_2" name="gmp_c">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="file_upload_3">Company Logo :-</label>
+        </div>
+        <div class="col-75 upload-container fu">
+         <i class="fas fa-cloud-upload-alt"></i>
+          <input type="file" required="required" id="file_upload_3" name="logo">
+        </div>
+      </div>
+
+      <div class="row col-25" style="margin-left: 500px;">
+        <input type="submit" value="Submit">
+      
+      </div>
+  </div>
+  </form>   
+ <script>
+        mobiscroll.setOptions({
+        locale: mobiscroll.localeEn,                                         // Specify language like: locale: mobiscroll.localePl or omit setting to use default
+        theme: 'ios',                                                        // Specify theme like: theme: 'ios' or omit setting to use default
+        themeVariant: 'light'                                                // More info about themeVariant: https://docs.mobiscroll.com/5-26-2/javascript/select#opt-themeVariant
+    });
+    
+    mobiscroll.select('#demo-multiple-select', {
+        inputElement: document.getElementById('demo-multiple-select-input')  // More info about inputElement: https://docs.mobiscroll.com/5-26-2/javascript/select#opt-inputElement
+    });
+      </script>
+</div>
+</body>
+</html>

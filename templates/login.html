@@ -1,0 +1,221 @@
+{% load static %}
+
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>U & V</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}" />
+
+  <link href="{% static 'font-awesome.min.css' %}" rel="stylesheet" />
+
+  <link href="{% static 'all_style.css' %}" rel="stylesheet" />
+
+  <link href="{% static 'responsive.css' %}" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+  <!-- MDB -->
+  <link rel="stylesheet" href="{% static 'login-form.min.css' %}" />
+</head>
+
+<body>
+  <!-- Start your project here-->
+  <style>
+    .text-center{text-align:center!important}
+    .gradient-custom-2 {
+      /* fallback for old browsers */
+      background: #fccb90;
+
+      /* Chrome 10-25, Safari 5.1-6 */
+      background: -webkit-linear-gradient(to right, #0ca57a, #063547);
+
+      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background: linear-gradient(to right, #0ca57a, #063547);
+    }
+
+    @media (min-width: 768px) {
+      .gradient-form {
+        height: 100vh !important;
+      }
+    }
+    @media (min-width: 769px) {
+      .gradient-custom-2 {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+      }
+    }
+    .alert{
+  font-size: 15px;
+  color: red;
+
+}
+
+   .form-control {
+    border: 1px solid #333;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+   font-size: 20px;
+
+    display: block;
+    height: 60px;
+  width: 100%;
+  padding: 0;
+    margin-bottom: 35px; 
+}
+ 
+.bg_p{
+background-color: #326c92;
+background-image: linear-gradient(160deg, #326c92 20%, #80a1d0 100%);
+
+}
+  </style>
+  <script type="text/javascript">
+    function sucess() {
+      confirm("Cong!! Your successfully login.");
+    }
+  </script>
+
+<div class="fa-item">
+      <div class="fafa-menu">
+        <a href="#" class="fa fa-facebook"  style="color: #519ac5fc;"></a>
+      </div>
+      <div class="fafa-menu">
+        <a href="#" class="fa fa-twitter"  style="color: #519ac5fc;"></a>
+      </div>
+      <div class="fafa-menu">
+        <a href="#" class="fa fa-google" style="color: #519ac5fc;"></a>
+      </div>
+      <div class="fafa-menu">
+        <a href="#" class="fa fa-linkedin" style="color: #519ac5fc;"></a>
+      </div>
+      <div class="fafa-menu">
+        <a href="#" class="fa fa-instagram" style="color: #519ac5fc;"></a>
+      </div>
+    </div>
+
+
+<div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section" style="background-color: #519ac5fc; font-weight: bold; font-size: 20px;">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+                    <img src="{% static 'images/U_V_logo.png' %}" width="80dp">
+            <span>U & V
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+    <!-- <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{user}} -->
+      </a>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           <ul class="navbar-nav"><!-- 
+              <li class="nav-item active"style="margin-left: -780px;">
+                <a class="nav-link pl-lg-0" href="cc" >Login <span class="sr-only">(current)</span></a>
+              </li> -->
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+
+ <section class="h-100 gradient-form" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-black">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="card-body p-md-5 mx-md-4">
+
+                  <form method="post" action="">
+                      {% csrf_token %}
+                    <p>Please login to your account</p>
+
+          <div class="form-label">
+          {% for message in messages %}
+          <div class="alert" role="alert">
+          {{message}}
+        </div>
+          {% endfor %}
+        </div>
+                    <div class="form-outline mb-4">
+                      <input type="text"  class="form-control" name="username" required="required" />
+                      <label style="font-size: 13px;"class="form-label" >Username</label>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <input type="password" id="" class="form-control" name = "password1" required="required" />
+                      <label style="font-size: 13px;"class="form-label" for="form2Example22">Password</label>
+                    </div>
+
+
+                    <div class="text-center pt-1 mb-5 pb-1">
+
+                    <button type="submit"class="btn btn-primary btn-block fa-lg bg_p mb-3" >Login</button>
+
+                      <input type="reset" name="reset" value="Reset" class="btn btn-primary btn-block fa-lg bg_p mb-3"> 
+                      
+                      <a class="text-muted" href="forget">Forgot password?</a>
+                    </div>
+
+                    <div class="d-flex align-items-center justify-content-center pb-4">
+                      <p class="mb-0 me-2">Don't have an account?</p>
+
+                      <button type="button" class="btn btn-outline-danger" ><a href="signup">Create new</a></button>
+                    </div>
+
+                  </form>
+
+                </div>
+              </div><!-- 
+                <div class="text-center">
+                  </div> -->
+              <div class="col-lg-6 d-flex align-items-center bg_p">
+                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                    <img src="{% static 'images/singup.png' %}" style="width: 495px;margin-left: -60px;" alt="logo">
+                    <h4 class="mt-1 mb-5 pb-1" style="text-align: center;"><b>We are The U & V Team</b></h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End your project here-->
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        <a href="https://html.design/">Free Html Templates</a>
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- bootstrap js -->
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <!-- custom js -->
+  <script src="{% static 'js/custom.js' %}"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+
+  <!-- MDB -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Custom scripts -->
+  <script type="text/javascript"></script>
+</body>
+
+</html>

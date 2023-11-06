@@ -1,0 +1,461 @@
+ {% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+     <title>U & V</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}" />
+
+  <link href="{% static 'font-awesome.min.css' %}" rel="stylesheet" />
+
+  <link href="{% static 'all_style.css' %}" rel="stylesheet" />
+
+  <link href="{% static 'responsive.css' %}" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+  <!-- MDB -->
+<style type="text/css">
+  
+
+.container {
+  width: 450px;
+  padding: 20px;
+  margin-top: 80px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.question {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.options {
+  margin-bottom: 20px;
+}
+
+.option {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #428bca;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  margin-right: 10px;
+}
+
+.button:hover {
+  background-color: #3071a9;
+}
+
+.result {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.hide{
+  display: none;
+}
+  </style>
+</head>
+<body>
+  <div class="fa-item">
+      <div class="fafa-menu">
+        <a href="#" class="fa fa-facebook"  style="color: #519ac5fc;"></a>
+      </div>
+      <div class="fafa-menu">
+        <a href="#" class="fa fa-twitter"  style="color: #519ac5fc;"></a>
+      </div>
+      <div class="fafa-menu">
+        <a href="#" class="fa fa-google" style="color: #519ac5fc;"></a>
+      </div>
+      <div class="fafa-menu">
+        <a href="#" class="fa fa-linkedin" style="color: #519ac5fc;"></a>
+      </div>
+      <div class="fafa-menu">
+        <a href="#" class="fa fa-instagram" style="color: #519ac5fc;"></a>
+      </div>
+    </div>
+
+
+<div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section" style="background-color: #519ac5fc; font-weight: bold; font-size: 20px;">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+                    <img src="{% static 'images/U_V_logo.png' %}" width="80dp">
+            <span>U & V
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+    <!-- <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{user}} -->
+      </a>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           <ul class="navbar-nav">
+              
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+
+<marquee  style="color: red; font-size: 35px; font-weight: bold;">
+Interviwer atleste get score more then 5 then they selected for last round.</marquee>
+
+  <div class="container">
+
+    <h1>Interview Quiz</h1>
+    <div id="quiz"></div>
+    <div id="result" class="result"></div>
+    <button id="submit" class="button">Submit</button>
+    <button id="retry" class="button hide">Retry</button>
+    <button id="showAnswer" class="button hide">Show Answer</button>
+   </div>
+<h2 style="color: red; font-weight: bold; text-align: center;"> <hr>if you have get more then 5 then you
+             <button class = "button" onclick="window.location.href = '../checkout';">call</button>
+        hr for fix up your last round. 
+</h2 >
+  <script type="text/javascript">
+    var data = [
+    {% for s in mymembers %}   
+      "{{ s.question }}",
+    {% endfor %}
+    ]
+    
+    var opion = [
+    {% for s in mymembers %}   
+      "{{ s.opt1 }}",
+      "{{ s.opt2 }}",
+      "{{ s.opt3 }}",
+      "{{ s.opt4 }}",     
+    {% endfor %}
+    ]
+    
+    var ans = [
+    {% for s in mymembers %}   
+      "{{ s.answer }}", 
+    {% endfor %}
+    ]
+
+    var data1 = [
+    {% for s_1 in mymembers_1 %}   
+      "{{ s_1.question }}",
+    {% endfor %}
+    ]
+    
+    var opion1 = [
+    {% for s_1 in mymembers_1 %}   
+      "{{ s_1.opt1 }}",
+      "{{ s_1.opt2 }}",
+      "{{ s_1.opt3 }}",
+      "{{ s_1.opt4 }}",     
+    {% endfor %}
+    ]
+    
+    var ans1 = [
+    {% for s_1 in mymembers_1 %}   
+      "{{ s_1.answer }}", 
+    {% endfor %}
+    ]
+
+
+    var data2 = [
+    {% for s_2 in mymembers_2 %}   
+      "{{ s_2.question }}",
+    {% endfor %}
+    ]
+    
+    var opion2 = [
+    {% for s_2 in mymembers_2 %}   
+      "{{ s_2.opt1 }}",
+      "{{ s_2.opt2 }}",
+      "{{ s_2.opt3 }}",
+      "{{ s_2.opt4 }}",     
+    {% endfor %}
+    ]
+    
+    var ans2 = [
+    {% for s_2 in mymembers_2 %}   
+      "{{ s_2.answer }}", 
+    {% endfor %}
+    ]
+
+    var data3 = [
+    {% for s_3 in mymembers_3 %}   
+      "{{ s_3.question }}",
+    {% endfor %}
+    ]
+    
+    var opion3 = [
+    {% for s_3 in mymembers_3 %}   
+      "{{ s_3.opt1 }}",
+      "{{ s_3.opt2 }}",
+      "{{ s_3.opt3 }}",
+      "{{ s_3.opt4 }}",     
+    {% endfor %}
+    ]
+    
+    var ans3 = [
+    {% for s_3 in mymembers_3 %}   
+      "{{ s_3.answer }}", 
+    {% endfor %}
+    ]
+
+    var data4 = [
+    {% for s_4 in mymembers_4 %}   
+      "{{ s_4.question }}",
+    {% endfor %}
+    ]
+    
+    var opion4 = [
+    {% for s_4 in mymembers_4 %}   
+      "{{ s_4.opt1 }}",
+      "{{ s_4.opt2 }}",
+      "{{ s_4.opt3 }}",
+      "{{ s_4.opt4 }}",     
+    {% endfor %}
+    ]
+    
+    var ans4 = [
+    {% for s_4 in mymembers_4 %}   
+      "{{ s_4.answer }}", 
+    {% endfor %}
+    ]
+    
+    var data5 = [
+    {% for s_5 in mymembers_5 %}   
+      "{{ s_5.question }}",
+    {% endfor %}
+    ]
+    
+    var opion5 = [
+    {% for s_5 in mymembers_5 %}   
+      "{{ s_5.opt1 }}",
+      "{{ s_5.opt2 }}",
+      "{{ s_5.opt3 }}",
+      "{{ s_5.opt4 }}",     
+    {% endfor %}
+    ]
+    
+    var ans5 = [
+    {% for s_5 in mymembers_5 %}   
+      "{{ s_5.answer }}", 
+    {% endfor %}
+    ]
+
+    var data6 = [
+    {% for s_6 in mymembers_6 %}   
+      "{{ s_6.question }}",
+    {% endfor %}
+    ]
+    
+    var opion6 = [
+    {% for s_6 in mymembers_6 %}   
+      "{{ s_6.opt1 }}",
+      "{{ s_6.opt2 }}",
+      "{{ s_6.opt3 }}",
+      "{{ s_6.opt4 }}",     
+    {% endfor %}
+    ]
+    
+    var ans6 = [
+    {% for s_6 in mymembers_6 %}   
+      "{{ s_6.answer }}", 
+    {% endfor %}
+    ]
+    
+    const quizData = [
+  {
+    question: data,
+    options: opion,
+    answer: ans,
+  },
+  {
+    question: data1,
+    options: opion1,
+    answer: ans1,
+  },
+  {
+    question: data2,
+    options: opion2,
+    answer: ans2,
+  },
+  {
+    question: data3,
+    options: opion3,
+    answer: ans3,
+  },
+  {
+    question: data4,
+    options: opion4,
+    answer: ans4,
+  },
+  {
+    question: data5,
+    options: opion5,
+    answer: ans5,
+  },
+  {
+    question: data6,
+    options: opion6,
+    answer: ans6,
+  },
+];
+
+
+
+const quizContainer = document.getElementById('quiz');
+const resultContainer = document.getElementById('result');
+const submitButton = document.getElementById('submit');
+const retryButton = document.getElementById('retry');
+const showAnswerButton = document.getElementById('showAnswer');
+
+let currentQuestion = 0;
+let score = 0;
+let incorrectAnswers = [];
+
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+function displayQuestion() {
+  const questionData = quizData[currentQuestion];
+
+  const questionElement = document.createElement('div');
+  questionElement.className = 'question';
+  questionElement.innerHTML = questionData.question;
+
+  const optionsElement = document.createElement('div');
+  optionsElement.className = 'options';
+
+  const shuffledOptions = [...questionData.options];
+  shuffleArray(shuffledOptions);
+
+  for (let i = 0; i < shuffledOptions.length; i++) {
+    const option = document.createElement('label');
+    option.className = 'option';
+
+    const radio = document.createElement('input');
+    radio.type = 'radio';
+    radio.name = 'quiz';
+    radio.value = shuffledOptions[i];
+
+    const optionText = document.createTextNode(shuffledOptions[i]);
+
+    option.appendChild(radio);
+    option.appendChild(optionText);
+    optionsElement.appendChild(option);
+  }
+
+  quizContainer.innerHTML = '';
+  quizContainer.appendChild(questionElement);
+  quizContainer.appendChild(optionsElement);
+}
+
+function checkAnswer() {
+  const selectedOption = document.querySelector('input[name="quiz"]:checked');
+  
+  if (selectedOption) {
+    const answer = selectedOption.value;
+    if (answer == quizData[currentQuestion].answer) {
+      score++;
+    } else {
+      incorrectAnswers.push({
+        question: quizData[currentQuestion].question,
+        incorrectAnswer: answer,
+        correctAnswer: quizData[currentQuestion].answer,
+      });
+    }
+    currentQuestion++;
+    selectedOption.checked = false;
+    if (currentQuestion < quizData.length) {
+      displayQuestion();
+    } else {
+      displayResult();
+    }
+  }
+}
+
+function displayResult() {
+  quizContainer.style.display = 'none';
+  submitButton.style.display = 'none';
+  retryButton.style.display = 'inline-block';
+  showAnswerButton.style.display = 'inline-block';
+  resultContainer.innerHTML = `You scored ${score} out of ${quizData.length}!`;
+    
+}
+
+function retryQuiz() {
+  currentQuestion = 0;
+  score = 0;
+  incorrectAnswers = [];
+  quizContainer.style.display = 'block';
+  submitButton.style.display = 'inline-block';
+  retryButton.style.display = 'none';
+  showAnswerButton.style.display = 'none';
+  resultContainer.innerHTML = '';
+  displayQuestion();
+}
+
+function showAnswer() {
+  quizContainer.style.display = 'none';
+  submitButton.style.display = 'none';
+  retryButton.style.display = 'inline-block';
+  showAnswerButton.style.display = 'none';
+
+  let incorrectAnswersHtml = '';
+  for (let i = 0; i < incorrectAnswers.length; i++) {
+    incorrectAnswersHtml += `
+      <p>
+        <strong>Question:</strong> ${incorrectAnswers[i].question}<br>
+        <strong>Your Answer:</strong> ${incorrectAnswers[i].incorrectAnswer}<br>
+        <strong>Correct Answer:</strong> ${incorrectAnswers[i].correctAnswer}
+      </p>
+    `;
+  }
+
+  resultContainer.innerHTML = `
+    <p>You scored ${score} out of ${quizData.length}!</p>
+    <p>Incorrect Answers:</p>
+    ${incorrectAnswersHtml}
+  `;
+}
+
+
+submitButton.addEventListener('click', checkAnswer);
+retryButton.addEventListener('click', retryQuiz);
+showAnswerButton.addEventListener('click', showAnswer);
+
+displayQuestion();
+
+  </script>
+</body>
+</html>
